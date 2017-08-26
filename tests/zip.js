@@ -74,4 +74,13 @@ QUnit.module('Тестируем функцию zip', function () {
 		};
 		assert.deepEqual(zip({name: 'age'}, {value: 42}, {name: 'cost'}, {value: -6}), obj);
 	});
+    
+    
+    QUnit.test('Мои тесты', function (assert) {
+        assert.deepEqual(zip({}), {});
+        assert.deepEqual(zip({foo: 'bar'}), {foo: 'bar'});
+        assert.deepEqual(zip({'foo bar': 'bar'}), {'foo bar': 'bar'});
+        assert.deepEqual(zip({}, {foo: 'bar'}, {bar: 123}), {foo: 'bar', bar: 123});
+		assert.deepEqual(zip({res: 123}, {res: true}, {foo: 'bar', res: 'true'}), {foo: 'bar', res: 123});
+	});
 });
