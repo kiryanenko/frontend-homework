@@ -7,12 +7,5 @@
 'use strict';
 
 const zip = function (...args) {
-    return args.reduce((res, arg) => {
-        for (let key in arg) {
-            if (!(key in res)) { 
-                res[key] = arg[key];
-            }
-        }
-		return res;
-    }, {});
+    return args.reduce((res, arg) => { return {...arg, ...res} }, {});
 };
