@@ -7,13 +7,12 @@
 'use strict';
 
 const zip = function (...args) {
-    let res = {};
-    args.forEach(function(arg, i, arr) {
+    return args.reduce(function(res, arg) {
         for (let key in arg) {
             if (!(key in res)) { 
                 res[key] = arg[key];
             }
         }
-    });
-    return res;
+		return res;
+    }, {});
 };
