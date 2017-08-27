@@ -6,15 +6,14 @@
 
 'use strict';
 
-const zip = function (objects) {
+const zip = function (...args) {
     let res = {};
-    for (let i = 0; i < arguments.length; i++) {
-        let arg = arguments[i];
+    args.forEach(function(arg, i, arr) {
         for (let key in arg) {
             if (!(key in res)) { 
                 res[key] = arg[key];
             }
         }
-    }
+    });
     return res;
 };
